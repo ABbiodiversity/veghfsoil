@@ -48,3 +48,7 @@ d_wide <- make_veghf_wide(
 )
 
 ```
+
+# Note
+
+This package is intended to supercede the `ABbiodiversity/veg-hf-soil-summaries` repository created by Peter S. It uses (virtually) identical code, but is just intended to help with ease of use. Thanks to Peter for the heavy lifting of creating the initial summaries code.   
