@@ -8,6 +8,14 @@
 \description{
 Take GIS site information and produce Veg+HF+Soil summaries for species modeling.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ABbiodiversity/veghfsoil}
+  \item Report bugs at \url{https://github.com/ABbiodiversity/veghfsoil/issues}
+}
+
+}
 \author{
 Marcus Becker \email{mabecker89@ualberta.ca}
 }
