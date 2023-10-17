@@ -180,7 +180,7 @@ WELL-BIT,WellSite,,WellSite,,,,W2W_HF2014,
 WELL-CASED,WellSite,,WellSite,,,,W2W_HF2014,
 WELL-CBM,WellSite,,WellSite,,,,VerifiedHF,
 WELL-CLEARED-DRILLED,WellSite,,WellSite,,,,W2W_HF2014,Confirmation of drilling and the boundary outline are provided by reference sources.
-WELL-CLEARED-NOT-CONFIRMED,WellSite,,WellSite,,,,VerifiedHF_2018-05-24,
+WELL_CLEARED_NOT_CONFIRMED,WellSite,,WellSite,,,,VerifiedHF_2018-05-24,
 WELL-CLEARED-NOT-DRILLED,WellSite,,WellSite,,,,W2W_HF2014,Confirmation of drilling and the boundary outline are provided by reference sources.
 WELL-CLEARING,WellSite,,WellSite,,,,SnowTransect,
 WELL-COMMINGLED,WellSite,,WellSite,,,,SnowTransect,
