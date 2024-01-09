@@ -40,7 +40,8 @@ d.long <- make_veghf_long(
 )
 
 # Obtain wide summary
-d.wide <- make_veghf_wide(long.output = d.long,
+d.wide <- make_veghf_wide(
+  long.output = d.long,
   col.label = "Site_ID",
   col.area = "Shape_Area",
   hf.fine = TRUE,
@@ -53,7 +54,8 @@ d.wide <- make_veghf_wide(long.output = d.long,
 )
 
 # Clean the wide summary to match ABMI species models
-landcover.out <- clean_landcover(data.in = d.wide,
+landcover.out <- clean_landcover(
+  data.in = d.wide,
   landscape.lookup = landcover.coef.lookup,
   type = "vegetation",
   class.in = "ID",
