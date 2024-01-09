@@ -24,7 +24,7 @@ clean_landcover(
 \item{class.out}{Output classes that match the coefficient}
 }
 \description{
-Create veg, hf, and soil summaries from GIS back-filled data in wide format
+Create veg, hf, and soil summaries from GIS back-filled data in wide format that align with the ABMI species models
 }
 \examples{
 \dontrun{

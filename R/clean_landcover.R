@@ -1,6 +1,6 @@
 #' Clean landcover data to match ABMI species model coefficients
 #'
-#' @description Create veg, hf, and soil summaries from GIS back-filled data in wide format
+#' @description Create veg, hf, and soil summaries from GIS back-filled data in wide format that align with the ABMI species models
 #'
 #' @param data.in Output from \code{make_landcover_wide()}
 #' @param landscape.lookup Defines the lookup table used for aggregating the landcover data. Default is provided lookup
