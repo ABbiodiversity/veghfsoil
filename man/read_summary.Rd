@@ -4,10 +4,10 @@
 \alias{read_summary}
 \title{Read in summary data}
 \usage{
-read_summary(summary_path, table = NULL, col.subset = NULL, val.subset)
+read_summary(summary.path, table = NULL, col.subset = NULL, val.subset = NULL)
 }
 \arguments{
-\item{summary_path}{Path to summary file (can be .csv or .sqlite)}
+\item{summary.path}{Path to summary file (can be .csv or .sqlite)}
 
 \item{table}{Name of table of interest for SQLite database (ignored for csv files)}
 

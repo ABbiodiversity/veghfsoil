@@ -1,9 +1,9 @@
 Package: veghfsoil
 Type: Package
 Title: ABMI Veg HF Soil Summaries from GIS
-Version: 0.1.0
+Version: 0.2.0
 Author: Science Centre
-Maintainer: Marcus Becker <mabecker@ualberta.ca>
+Maintainer: Marcus Becker <mabecker@ualberta.ca> and Brandon Allen <brandon.allen@ualberta.ca>
 Description: Take GIS site information and produce Veg+HF+Soil summaries for species modeling.
 License: GPL (>= 3)
 Imports:
@@ -15,6 +15,6 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 URL: https://github.com/ABbiodiversity/veghfsoil
 BugReports: https://github.com/ABbiodiversity/veghfsoil/issues

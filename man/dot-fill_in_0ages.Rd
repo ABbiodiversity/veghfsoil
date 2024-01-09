@@ -4,16 +4,16 @@
 \alias{.fill_in_0ages}
 \title{Fill in 0 ages}
 \usage{
-.fill_in_0ages(x, NSR, ages_list, rm0 = TRUE)
+.fill_in_0ages(x, NSR, ages.list, age.data = "Maltman.Old")
 }
 \arguments{
 \item{x}{Input}
 
 \item{NSR}{NSR column}
 
-\item{ages_list}{Ages list object}
+\item{ages.list}{Ages list object}
 
-\item{rm0}{Logical}
+\item{age.data}{Default; Maltman.old. Defines which age information will be used for unknown stands (ABMI.Young; Maltman.Young; ABMI.Old; Maltman.Old)}
 }
 \description{
 This function redistributes unknown ages in wide form summaries

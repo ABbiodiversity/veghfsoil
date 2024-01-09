@@ -1,20 +1,38 @@
-#' recl
-"recl"
+#' harvest-areas-lookup
+"harvest.lookup"
 
-#' hflt
-"hflt"
+#' hfi-lookup
+"footprint.lookup"
+
+#' landcover-coefficient-lookup
+"landcover.coef.lookup"
+
+#' soil-lookup
+"soil.lookup"
+
+#' vegetation-lookup
+"vegetation.lookup"
+
+#' unknown-ages-lookup
+"kgrid"
 
 #' ages-by-nsr
-"ages_list"
+"ages.list"
 #' ages-by-nsr
-"AvgAgesAll"
+"age.all.abmi"
 #' ages-by-nsr
-"AvgAgesAllOld"
+"age.all.maltman"
 #' ages-by-nsr
-"AvgAgesNR"
+"age.nsr.abmi"
 #' ages-by-nsr
-"AvgAgesNROld"
+"age.nsr.maltman"
 #' ages-by-nsr
-"AvgAgesNSR"
+"age.old.all.abmi"
 #' ages-by-nsr
-"AvgAgesNSROld"
+"age.old.all.maltman"
+#' ages-by-nsr
+"age.old.nsr.abmi"
+#' ages-by-nsr
+"age.old.nsr.maltman"
+#' ages-by-nsr
+"nsr.age.proportions"
