@@ -13,6 +13,8 @@
 #' @importFrom utils data flush.console
 #' @importFrom methods as
 #'
+#' @export
+#'
 #'
 impute_unknown_ages <- function(landcover,
                                 ages.list,
