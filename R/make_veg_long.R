@@ -45,12 +45,12 @@ make_landcover_long <- function(landcover,
                                 age.correction = FALSE,
                                 ver.id = "V7.0") {
 
-  # Load appropriate lookup tables
-  data("footprint.lookup", envir = environment())
-  data("harvest.lookup", envir = environment())
-  data("vegetation.lookup", envir = environment())
-  data("soil.lookup", envir = environment())
-  data("kgrid", envir = environment())
+#   # Load appropriate lookup tables
+#   data("footprint.lookup", envir = environment())
+#   data("harvest.lookup", envir = environment())
+#   data("vegetation.lookup", envir = environment())
+#   data("soil.lookup", envir = environment())
+#   data("kgrid", envir = environment())
 
   # Make sure NA values area defined as ""
   levels(landcover$FEATURE_TY) <- c(levels(landcover$FEATURE_TY), "")

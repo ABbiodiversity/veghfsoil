@@ -42,12 +42,12 @@ make_landcover_wide <- function(long.output,
                                 ver.id = "V7.0",
                                 rm0 = TRUE) {
 
-  # Load appropriate lookup tables
-  data("footprint.lookup", envir = environment())
-  data("harvest.lookup", envir = environment())
-  data("vegetation.lookup", envir = environment())
-  data("soil.lookup", envir = environment())
-  data("ages.by.nsr", envir = environment())
+  # # Load appropriate lookup tables
+  # data("footprint.lookup", envir = environment())
+  # data("harvest.lookup", envir = environment())
+  # data("vegetation.lookup", envir = environment())
+  # data("soil.lookup", envir = environment())
+  # data("ages.by.nsr", envir = environment())
 
   # Update the shape area if it isn't as expected
   if (col.area != "Shape_Area") {
