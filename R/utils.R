@@ -120,7 +120,7 @@
           Mat <- xx[j, Cols, drop=FALSE]
           Mat0 <- Mat
           ## multiply Mat[,1] (unknown age) with this matrix
-          Unk <- Mat[,1] * t(matrix(p0, length(Ages), sum(j)))
+          Unk <- Mat[,1] * t(matrix(as.numeric(p0), length(Ages), sum(j)))
           Mat[,1] <- 0 # will be 0 and redistributed from Unk
           Mat <- Mat + Unk
           xx[j, Cols] <- Mat # ridiculously slow as sparse matrix
