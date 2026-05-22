@@ -5,7 +5,7 @@
 \alias{footprint.lookup}
 \title{hfi-lookup}
 \format{
-An object of class \code{data.frame} with 216 rows and 13 columns.
+An object of class \code{data.frame} with 229 rows and 11 columns.
 }
 \usage{
 footprint.lookup

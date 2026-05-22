@@ -2,8 +2,8 @@
 % Please edit documentation in R/veghfsoil.R
 \docType{package}
 \name{veghfsoil}
-\alias{veghfsoil}
 \alias{veghfsoil-package}
+\alias{veghfsoil}
 \title{veghfsoil}
 \description{
 Take GIS site information and produce Veg+HF+Soil summaries for species modeling.
