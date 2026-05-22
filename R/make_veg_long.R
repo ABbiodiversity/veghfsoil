@@ -56,25 +56,28 @@ make_landcover_long <- function(landcover,
   levels(landcover$FEATURE_TY) <- c(levels(landcover$FEATURE_TY), "")
   landcover$FEATURE_TY[is.na(landcover$FEATURE_TY)] <- ""
 
+  # Define FEATURE_TY that are suitable harvest areas
+  harvest.areas <- footprint.lookup$FEATURE_TY[footprint.lookup$ANALYSIS_FINE == "HFor"]
+
   # Correct potentially suitable landcover types that fall in HARVEST-AREAS
   for (veg in harvest.lookup$Landcover[harvest.lookup$Combined != ""]) {
 
-    landcover[landcover[, col.veg] == veg & landcover[, "FEATURE_TY"] == "HARVEST-AREA", col.veg] <- harvest.lookup[harvest.lookup$Landcover == veg, "Combined"]
+    landcover[landcover[, col.veg] == veg & landcover[, "FEATURE_TY"] %in% harvest.areas, col.veg] <- harvest.lookup[harvest.lookup$Landcover == veg, "Combined"]
 
   }
 
   # Correct HARVEST-AREAS that fall in unsuitable landcover types
   for (veg in harvest.lookup$Landcover[harvest.lookup$Combined == ""]) {
 
-    landcover[landcover[, col.veg] == veg & landcover[, "FEATURE_TY"] == "HARVEST-AREA", "FEATURE_TY"] <- harvest.lookup[harvest.lookup$Landcover == veg, "Combined"]
+    landcover[landcover[, col.veg] == veg & landcover[, "FEATURE_TY"] %in% harvest.areas, "FEATURE_TY"] <- harvest.lookup[harvest.lookup$Landcover == veg, "Combined"]
 
   }
 
   # If a natural disturbance (burn) occurs after a HARVEST-AREA event, remove the HARVEST-AREA
   if (burn.cc) {
 
-    landcover[landcover[, "FEATURE_TY"] == "HARVEST-AREA" & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "FEATURE_TY"] <- ""
-    landcover[landcover[, "FEATURE_TY"] == "HARVEST-AREA" & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "YEAR"] <- 0
+    landcover[landcover[, "FEATURE_TY"] %in% harvest.areas & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "FEATURE_TY"] <- ""
+    landcover[landcover[, "FEATURE_TY"] %in% harvest.areas & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "YEAR"] <- 0
 
   }
 
