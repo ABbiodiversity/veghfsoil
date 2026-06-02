@@ -8,6 +8,7 @@ clean_landcover(
   data.in,
   landscape.lookup = landcover.coef.lookup,
   type = "Vegetation",
+  burn.cc = "Harvest",
   class.in = "ID",
   class.out = "COEF"
 )
@@ -18,6 +19,8 @@ clean_landcover(
 \item{landscape.lookup}{Defines the lookup table used for aggregating the landcover data. Default is provided lookup}
 
 \item{type}{Character; Defines if the landcover data is "Soil" or "Vegetation"}
+
+\item{burn.cc}{character; If "Harvest", harvests that have burned are treated as if fires reset orign year. If "Vegetation", it assigns it to the closest native vegetation.}
 
 \item{class.in}{Input column that matches classes from make_landcover_wide}
 
@@ -30,7 +33,8 @@ Create veg, hf, and soil summaries from GIS back-filled data in wide format that
 \dontrun{
 landcover.out <- clean_landcover(data.in = d.wide,
                                  landscape.lookup = landcover.coef.lookup,
-                                 type = "vegetation",
+                                 type = "Vegetation",
+                                 burn.cc = "Harvest",
                                  class.in = "ID",
                                  class.out = "COEF")
 }

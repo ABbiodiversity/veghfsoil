@@ -33,7 +33,7 @@ make_landcover_long(
 
 \item{hf.fine}{Logical; defaults to TRUE. Decides if coarse of fine footprint levels should be used.}
 
-\item{burn.cc}{Logical; defaults to TRUE. Decides if burned harvested areas become natural burned stands or maintain cutblock status with harvest year age.}
+\item{burn.cc}{Logical; defaults to TRUE. Tracks harvest areas that have been new and their new disturbance date (TRUE) or maintains cutblock status with harvest origin year age (FALSE).}
 
 \item{unround}{Logical; whether to unround rounded origin year values pre-2000}
 
