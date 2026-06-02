@@ -81,6 +81,9 @@ make_landcover_wide <- function(long.output,
   # Use necessary CC-forest classes once evaluated
   CCOnlyLab <- paste0("CC", paste0(rep(treed.classes.cc, each=5),
                                    c("R","1","2","3","4")))
+
+  # Add burned
+  CCOnlyLab <- c(CCOnlyLab, paste0("Burn", CCOnlyLab))
   CrOnlyLab <- c(HFLab, CCOnlyLab)
   HLEVS <- c(treed.classes, non.treed.classes)
   VegHFLab <- c(VegLab, CrOnlyLab)
