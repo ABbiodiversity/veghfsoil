@@ -8,7 +8,7 @@
 #' @param col.hfyear HF year column; default is "YEAR"
 #' @param col.veg Vegetation column; default is "Combined_ChgByCWCS"
 #' @param col.soil Soil column; default is "Soil_Type_1"
-#' @param burn.cc Logical; defaults to TRUE. Decides if burned harvested areas become natural burned stands or maintain cutblock status with harvest year age.
+#' @param burn.cc Logical; defaults to TRUE. Tracks harvest areas that have been new and their new disturbance date (TRUE) or maintains cutblock status with harvest origin year age (FALSE).
 #' @param hf.fine Logical; defaults to TRUE. Decides if coarse of fine footprint levels should be used.
 #' @param unround Logical; whether to unround rounded origin year values pre-2000
 #' @param age.correction Age correction column; applies built in age correction old forests. Default of FALSE means no age correction occurs.
@@ -73,11 +73,15 @@ make_landcover_long <- function(landcover,
 
   }
 
-  # If a natural disturbance (burn) occurs after a HARVEST-AREA event, remove the HARVEST-AREA
+  # If a natural disturbance (burn) occurs after a HARVEST-AREA event
+  # assign the new origin year and track.
   if (burn.cc) {
 
-    landcover[landcover[, "FEATURE_TY"] %in% harvest.areas & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "FEATURE_TY"] <- ""
-    landcover[landcover[, "FEATURE_TY"] %in% harvest.areas & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"], "YEAR"] <- 0
+    # Defines logical of harvest havest areas that burned
+    landcover$HarvestBurned <- landcover[, "FEATURE_TY"] %in% harvest.areas & landcover[, "Origin_Year_NatDist"] >= landcover[, "YEAR"]
+
+    # Updates harvest year with new fire year
+    landcover[landcover$HarvestBurned , "YEAR"] <- landcover[landcover$HarvestBurned , "Origin_Year_NatDist"]
 
   }
 
@@ -334,6 +338,18 @@ make_landcover_long <- function(landcover,
 
   # current VEG + HF + Age labels:
   landcover$VEGHFAGEclass <- interaction(landcover$VEGHFclass, landcover$AGE_CR, drop=TRUE, sep="", lex.order=TRUE)
+
+  # If a natural disturbance (burn) occurs after a HARVEST-AREA event
+  # updated the class
+  if (burn.cc) {
+
+    # Defines logical of harvest havest areas that burned
+    landcover$VEGHFAGEclass <- as.character(landcover$VEGHFAGEclass)
+    landcover$VEGHFAGEclass[landcover$HarvestBurned] <- paste0("Burn", landcover$VEGHFAGEclass[landcover$HarvestBurned])
+    landcover$VEGHFAGEclass <- as.factor(landcover$VEGHFAGEclass)
+
+  }
+
   # Labels for output columns
   levels(landcover$VEGHFAGEclass) <- c(levels(landcover$VEGHFAGEclass), setdiff(AllLabels, levels(landcover$VEGHFAGEclass)))
 
