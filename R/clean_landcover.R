@@ -5,6 +5,7 @@
 #' @param data.in Output from \code{make_landcover_wide()}
 #' @param landscape.lookup Defines the lookup table used for aggregating the landcover data. Default is provided lookup
 #' @param type Character; Defines if the landcover data is "Soil" or "Vegetation"
+#' @param burn.cc character; If "Harvest", harvests that have burned are treated as if fires reset orign year. If "Vegetation", it assigns it to the closest native vegetation.
 #' @param class.in Input column that matches classes from make_landcover_wide
 #' @param class.out Output classes that match the coefficient
 #'
@@ -14,18 +15,39 @@
 #' \dontrun{
 #' landcover.out <- clean_landcover(data.in = d.wide,
 #'                                  landscape.lookup = landcover.coef.lookup,
-#'                                  type = "vegetation",
+#'                                  type = "Vegetation",
+#'                                  burn.cc = "Harvest",
 #'                                  class.in = "ID",
 #'                                  class.out = "COEF")
 #' }
 #'
 clean_landcover <- function(data.in, landscape.lookup = landcover.coef.lookup,
-                            type = "Vegetation", class.in = "ID", class.out = "COEF") {
+                            type = "Vegetation", burn.cc = "Harvest",
+                            class.in = "ID", class.out = "COEF") {
 
   # Define the lookup table
   if(type == "Vegetation") {
 
     landscape.lookup <- landscape.lookup$Vegetation
+
+    if(burn.cc == "Harvest") {
+
+      # Modify lookup to group BurnCC with CC
+      harvest.coef <- landscape.lookup[grep("CC", landscape.lookup$ID), ]
+      harvest.coef$ID <- paste0("Burn", harvest.coef$ID)
+      rownames(harvest.coef) <- harvest.coef$ID
+      landscape.lookup <- rbind(landscape.lookup, harvest.coef)
+
+    } else{
+
+      # Modify lookup to group BurnCC with natural vegetation
+      harvest.coef <- landscape.lookup[grep("CC", landscape.lookup$ID), ]
+      harvest.coef$ID <- paste0("Burn", harvest.coef$ID)
+      rownames(harvest.coef) <- harvest.coef$ID
+      harvest.coef$COEF <- gsub("CC", "", harvest.coef$COEF)
+      landscape.lookup <- rbind(landscape.lookup, harvest.coef)
+
+    }
 
   }
 
