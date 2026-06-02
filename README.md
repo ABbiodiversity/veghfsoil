@@ -12,9 +12,18 @@
 
 > [!IMPORTANT]
 > This has been developed for **internal use within the ABMI Science Centre**.
-> 
+> Version 2.0 2026-06-02
 
 This package contains function that take as input the attributes from the backfill veg/soil/HF data and produces output in long and wide format (also deals with unknown ages) for species modeling.
+
+---
+
+# Changes since version 1.0
+There are three important changes that have been implemented in version 2.0.
+
+- Improved documentation of functions and alignment with the example provided in the ReadMe.
+- Updated the lookup tables association with human footprint categories to include feature types present in HFI 2022 and 2023.
+- Changed the behaviour of the *burn.cc* option in the *make_landcover_long* and *clean_landcover* functions. Harvest areas that have burned are now tracked separately (i.e., BurnCCPineR) with the age of harvest areas reset if a fire occurs in the polygon (e.g., CCPine3 -> BurnCCPineR). Users can use the *clean_landcover* function to group these burned areas into harvest polygons (e.g., BurnCCPineR -> CCPineR) or the natural vegetation (e.g., BurnCCPineR -> PineR) depending on their application.
 
 ---
 
