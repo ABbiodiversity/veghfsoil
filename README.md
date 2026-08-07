@@ -104,6 +104,13 @@ clean_landcover(data.in = as.matrix(d.wide$soil.current),
 
 ```
 
+# Citation
+
+Alberta Biodiversity Monitoring Institute. 2026. Veg/soil/HF processing, Version 2.0 2026-06-02. Alberta Biodiversity Monitoring Institute,
+Alberta, Canada. GitHub Repository. https://github.com/ABbiodiversity/veghfsoil
+
 # Note
 
 This package is intended to supercede the `ABbiodiversity/veg-hf-soil-summaries` repository created by Peter Solymos. It uses that repository as the foundation for the package, but is simplified to help with ease of use. Thanks to Peter for the heavy lifting of creating the initial summaries code.   
+
+
